@@ -32,8 +32,8 @@ def recursive_solve(instance, watchlist, assignment, d, unit_propagation=False, 
                 next_d = i
                 # print(pp_assignment, assignment)
         if next_d != None:
+            assignment = pp_assignment
             d = next_d
-
     # if not assignment[d] is None:
     #     return
     for a in [0, 1]:
