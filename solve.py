@@ -4,10 +4,11 @@ from watchlist import setup_watchlist
 from testcase_generator import testcase_generator
 import time
 
+len_CNF = 30  # length of CNF
+num_var = 5  # number of variables
+num_testcase = 5  # number of test cases
+
 def main():
-    len_CNF = 30 # length of CNF
-    num_var = 5  # number of variables
-    num_testcase = 5 # number of test cases
     testcase_generator(len_CNF,num_var,num_testcase)
     for test_id in range(num_testcase):
         test_file = 'test/testcase'+str(test_id)+'.txt'
