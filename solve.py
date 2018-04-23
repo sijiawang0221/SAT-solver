@@ -4,8 +4,8 @@ from watchlist import setup_watchlist
 from testcase_generator import testcase_generator
 import time
 
-len_CNF = 30  # length of CNF
-num_var = 5  # number of variables
+len_CNF = 30      # length of CNF
+num_var = 5       # number of variables
 num_testcase = 5  # number of test cases
 
 def main():
