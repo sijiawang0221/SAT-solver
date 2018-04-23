@@ -1,4 +1,4 @@
-# This is a file of test cases for cse513 final project SAT-SOLVER
+# This is a file of test cases generator for cse513 final project SAT-SOLVER
 
 import numpy as np
 # lens     : number of clauses
