@@ -7,13 +7,28 @@ import numpy as np
 
 
 def generate_CNF(lens, xnum):
-    rand = np.random.randint(-1, 2, size=(xnum, lens))
+    rand = np.random.randint(-1, 5, size=(xnum, lens))
     res = [[''] * lens for i in range(xnum)]
-    for i in range(xnum):
-        s = str(chr(65+i))
-        res[i] = list(np.where(rand[i] > 0,  s, ''))
-        res[i] = list(np.where(rand[i] < 0, '~'+s, res[i]))
+    if xnum <= 26:
+        for i in range(xnum):
+            s = str(chr(65+i))
+            res[i] = list(np.where(rand[i] > 3,  s, ''))
+            res[i] = list(np.where(rand[i] < 0, '~'+s, res[i]))
+    else:
+        j = 0
+        x = xnum
+        while x > 0:
+            # for j in range(xnum/26+1):
+            for i in range(26):
+                s = str(chr(65 + i))
+                res[i+26*j] = list(np.where(rand[i+26*j] > 3, s + str(j), ''))
+                res[i+26*j] = list(np.where(rand[i+26*j] < 0, '~' + s + str(j), res[i+26*j]))
+                x -= 1
+                if x <= 0:
+                    break
+            j = j + 1
     res = np.transpose(res)
+
     out = []
     for i in range(lens):
         out.append(str(' '.join(res[i])))

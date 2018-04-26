@@ -87,7 +87,7 @@ def unit_pg_step(instance,
             break
     if false_literal is None:
         return
-    print("Unit propagation: ", false_literal)
+    # print("Unit propagation: ", false_literal)
     return update_watchlist(instance, 
                             watchlist, 
                             false_literal, 
@@ -100,7 +100,8 @@ def unit_pg(instance,
             unit_propagation, 
             verbose):
     
-    last_assignment = copy.deepcopy(assignment)
+    # last_assignment = copy.deepcopy(assignment)
+    last_assignment = assignment.copy()
     unit_pg_step(instance, watchlist, assignment, unit_propagation, verbose)
     while not last_assignment == assignment:
         last_assignment = copy.deepcopy(assignment)

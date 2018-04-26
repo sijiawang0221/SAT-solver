@@ -23,7 +23,9 @@ def recursive_solve(instance, watchlist, assignment, d, unit_propagation=False, 
     #                 verbose):
 
     if unit_propagation:
-        pp_assignment = copy.deepcopy(assignment)
+        # pp_assignment = copy.deepcopy(assignment)
+        pp_assignment = assignment.copy()
+
         unit_pg(instance, watchlist, pp_assignment, unit_propagation, verbose)
         # print(pp_assignment, assignment)
         next_d = None
